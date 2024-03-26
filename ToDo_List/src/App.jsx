@@ -5,7 +5,6 @@ import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import { BsCheckLg } from "react-icons/bs";
 import { colors } from '@mui/material';
-// import Modal from './components/Modal';
 
 
 function App() {
@@ -32,8 +31,10 @@ function App() {
       }
     }
     if(flag == 0){
-      updatedTodoArr.push(newToDoItem)
-      setTodos(updatedTodoArr)
+      // updatedTodoArr.unshift(newToDoItem)
+      setTodos((newToDoItem)=>{
+          
+      })
       setTitle("")
       setDesc('')
       
