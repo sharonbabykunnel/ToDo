@@ -19,9 +19,7 @@ const reducer = combineReducers({
 const presistedReducer = persistReducer(presistConfig, reducer);
 
 const appStore = configureStore({
-  reducer: {
-    presisted: presistedReducer,
-  },
+  reducer:  presistedReducer ,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

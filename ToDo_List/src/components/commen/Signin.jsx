@@ -1,14 +1,24 @@
 import { useFormik } from 'formik';
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { signinApi } from '../../apis/auth';
 import { loginSchema } from '../../schemas';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux/userSlice';
+import ForgotPassword from './ForgotPassword';
 
 const Signin = () => {
         const navigate = useNavigate();
         const dispatch = useDispatch();
+        const [isOpen, setIsOpen] = useState(false)
+
+        const openForgot = ()=>{
+          setIsOpen(true)
+        }
+
+        const onClose = ()=>{
+          setIsOpen(false);
+        }
     
         const formik = useFormik({
             initialValues: {
@@ -73,12 +83,11 @@ const Signin = () => {
                   Password
                 </label>
 
-                <Link
-                  to='/forgot-password'
+                <div onClick={openForgot}
                   className="text-sm font-medium transition-all duration-200 text-rose-500 hover:text-rose-600 focus:text-rose-600 hover:underline"
                 >
                   Forgot password?
-                </Link>
+                </div>
               </div>
               <div className="mt-2.5">
                 <input
@@ -124,6 +133,7 @@ const Signin = () => {
             </div> */}
           </div>
         </form>
+        {isOpen && <ForgotPassword onClose={onClose} />}
       </div>
     </div>
   </div>

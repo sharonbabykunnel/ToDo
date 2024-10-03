@@ -47,3 +47,17 @@ export const signoutApi = async () => {
                 );
     }
 }
+
+export const passwordChangeApi = async ({ email, password }) => {
+  try {
+    const res = await auth.post("auth/changePassword", { email, password });
+    console.log(res);
+    Success(res.data.message);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+    Failed(
+      error.response.data.message ? error.response.data.message : error.message
+    );
+  }
+};
