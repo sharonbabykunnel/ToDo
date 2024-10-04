@@ -1,14 +1,14 @@
-import React, { Suspense } from 'react'
+import React, { lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { createBrowserRouter, createRoutesFromElements, Navigate, Route, RouterProvider } from 'react-router-dom'
-import HomePages from './components/pages/HomePage.jsx'
-import SignInPage from './components/pages/SignInPage.jsx'
-import SignUpPage from './components/pages/SignUpPage.jsx'
-import PrivatePages from './middlewares/PrivatePages.jsx'
 import { Provider } from 'react-redux'
 import appStore from './redux/appStore.js'
-import PublickPages from './middlewares/PublickPages.jsx'
+const HomePages = lazy(()=> import('./components/pages/HomePage.jsx'))
+const SignInPage = lazy(()=> import('./components/pages/SignInPage.jsx'))
+const SignUpPage = lazy(()=> import('./components/pages/SignUpPage.jsx'))
+const PrivatePages = lazy(()=> import('./middlewares/PrivatePages.jsx'))
+const PublickPages = lazy(()=> import('./middlewares/PublickPages.jsx'))
 
 const routes = createBrowserRouter(
   createRoutesFromElements(

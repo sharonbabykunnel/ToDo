@@ -296,7 +296,7 @@ console.log(newSocket);
           </div>
 
           <div className="lg:col-span-1">
-            <TaskStatistics todo={setTodos} />
+            <TaskStatistics todo={allTodos} />
           </div>
         </div>
       </div>

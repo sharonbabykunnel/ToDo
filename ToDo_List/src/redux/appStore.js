@@ -3,17 +3,14 @@ import userSlice from "./userSlice";
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage";
 import persistStore from "redux-persist/es/persistStore";
-import articleSlice from "./articleSlice";
-
 const presistConfig = {
     key: 'root',
     storage,
-    whiteList: ['user','article']
+    whiteList: ['user']
 };
 
 const reducer = combineReducers({
     user: userSlice,
-    article: articleSlice
 });
 
 const presistedReducer = persistReducer(presistConfig, reducer);
